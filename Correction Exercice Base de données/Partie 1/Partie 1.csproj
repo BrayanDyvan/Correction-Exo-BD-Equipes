@@ -17,6 +17,7 @@
     <None Remove="dialogues\DialogueAjoutJoueur.xaml" />
     <None Remove="pages\PageAffichage.xaml" />
     <None Remove="pages\PageAffichageJoueurs.xaml" />
+    <None Remove="pages\PageDetailsEquipe.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +44,11 @@
   -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="pages\PageDetailsEquipe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="dialogues\DialogueAjoutJoueur.xaml">

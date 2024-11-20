@@ -83,5 +83,14 @@ namespace Partie_1.pages
             else
                 SingletonBD.getInstance().getEquipes();
         }
+
+        private void btn_details_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+
+            Equipe equipe = button.DataContext as Equipe;
+            
+            Frame.Navigate(typeof(PageDetailsEquipe), equipe);
+        }
     }
 }

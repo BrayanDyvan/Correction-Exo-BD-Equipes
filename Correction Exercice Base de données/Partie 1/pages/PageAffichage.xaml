@@ -47,7 +47,8 @@
                   Grid.Row="1" 
                   Margin="20"
                   Background="Transparent" 
-                  Grid.ColumnSpan="2">
+                  Grid.ColumnSpan="2"
+                  >
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="classes:Equipe">
                     <StackPanel Margin="10" Padding="10" 
@@ -74,12 +75,23 @@
                            TextAlignment="Center" 
                            Margin="0,5,0,0"/>
 
-                        <Button Click="Button_Click" 
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="btn_details"
+                                Click="btn_details_Click"
                                 HorizontalAlignment="Center" 
                                 BorderBrush="Transparent" 
                                 Margin="10">
-                            <SymbolIcon Symbol="Delete" Foreground="Red" />
-                        </Button>
+                                <SymbolIcon Symbol="View" Foreground="Blue" />
+                            </Button>
+
+                            <Button Click="Button_Click" 
+                                HorizontalAlignment="Center" 
+                                BorderBrush="Transparent" 
+                                Margin="10">
+                                <SymbolIcon Symbol="Delete" Foreground="Red" />
+                            </Button>
+                        </StackPanel>
+                        
                         
                     </StackPanel>
                 </DataTemplate>

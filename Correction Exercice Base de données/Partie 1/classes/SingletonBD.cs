@@ -235,6 +235,42 @@ namespace Partie_1.classes
 
         }
 
+        public void getJoueursParEquipe(string n)
+        {
+            listeJoueurs.Clear();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = $"Select * from joueur where nomEquipe = '{n}'";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                string matricule = r.GetString("matricule");
+                string nom = r.GetString("nom");
+                string prenom = r.GetString("prenom");
+                DateTime dateNaissance = r.GetDateTime("dateNaissance");
+                string nomEquipe = r.GetString("NomEquipe");
+
+                Joueur j = new Joueur
+                {
+                    Matricule = matricule,
+                    Nom = nom,
+                    Prenom = prenom,
+                    DateNaissance = dateNaissance,
+                    NomEquipe = nomEquipe
+                };
+
+                listeJoueurs.Add(j);
+            }
+            r.Close();
+            con.Close();
+
+
+        }
+
         public void ajouterJoueur(Joueur joueur)
         {
             try
@@ -276,7 +312,8 @@ namespace Partie_1.classes
 
             con.Close();
 
-            getJoueurs();
+            if(nomEquipe != "")
+                getJoueurs();
         }
 
         public void supprimerJoueur(Joueur joueur)
