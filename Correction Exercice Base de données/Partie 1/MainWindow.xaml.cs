@@ -28,6 +28,8 @@ namespace Partie_1
         public MainWindow()
         {
             this.InitializeComponent();
+            Utilitaires.mainWindow = this;
+            Utilitaires.navigationView = navView;
             mainFrame.Navigate(typeof(PageAffichage));
         }
 

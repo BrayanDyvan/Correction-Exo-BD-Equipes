@@ -92,5 +92,27 @@ namespace Partie_1.pages
             
             Frame.Navigate(typeof(PageDetailsEquipe), equipe);
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            
+            
+
+            foreach (var item in Utilitaires.navigationView.MenuItems)
+            {
+                if(item is NavigationViewItem)
+                {
+                    NavigationViewItem navItem = (NavigationViewItem)item;
+                    if (navItem.Name == "iEquipes")
+                    {
+                        Utilitaires.navigationView.SelectedItem = navItem;
+                        break;
+                    }
+                }
+                
+                
+            }
+        }
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using MySqlX.XDevAPI;
 using Partie_1.classes;
 using Partie_1.dialogues;
 using System;
@@ -127,6 +128,28 @@ namespace Partie_1.pages
             
         }
 
-        
+        private async void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            var picker = new Windows.Storage.Pickers.FileSavePicker();
+
+            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(Utilitaires.mainWindow);
+            WinRT.Interop.InitializeWithWindow.Initialize(picker, hWnd);
+
+            picker.SuggestedFileName = "test2";
+            picker.FileTypeChoices.Add("Fichier CSV", new List<string>() { ".csv" });
+
+            //crée le fichier
+            Windows.Storage.StorageFile monFichier = await picker.PickSaveFileAsync();
+
+            if(monFichier != null)
+            {
+                //on convertit la liste des joueurs du singleton en List pour pouvoir écrire dans le fichier
+                List<Joueur> liste = SingletonBD.getInstance().ListeJoueurs.ToList();
+            
+                await Windows.Storage.FileIO.WriteLinesAsync(monFichier, liste.ConvertAll(x => x.StringCSV), Windows.Storage.Streams.UnicodeEncoding.Utf8);
+            }
+
+            
+        }
     }
 }

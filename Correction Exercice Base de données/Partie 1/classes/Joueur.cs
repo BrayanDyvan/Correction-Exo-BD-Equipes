@@ -29,5 +29,7 @@ namespace Partie_1.classes
 
         public string NomPrenom { get{ return Prenom + " " + Nom; } }
         public string DateNaissanceString { get { return DateNaissance.ToString("dd MMMM yyyy"); } }
+
+        public string StringCSV { get { return Matricule + ";" + Nom + ";" + Prenom + ";" + DateNaissance.ToString("d"); } }
     }
 }

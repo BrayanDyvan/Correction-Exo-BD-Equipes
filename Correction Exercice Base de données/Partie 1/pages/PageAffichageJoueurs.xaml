@@ -33,6 +33,7 @@
             Grid.Column="1">
 
             <AppBarButton Icon="Add" Label="Nouveau joueur" Click="AppBarButton_Click"/>
+            <AppBarButton Icon="SaveLocal" Label="Expoter CSV" Click="AppBarButton_Click_1"/>
         </CommandBar>
 
         <GridView x:Name="gv_liste" 

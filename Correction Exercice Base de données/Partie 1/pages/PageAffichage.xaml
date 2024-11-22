@@ -7,8 +7,7 @@
     xmlns:classes="using:Partie_1.classes"  
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <!--
     dans ce fichier j'utilise une classe se trouvant dans le dossier "classes".
