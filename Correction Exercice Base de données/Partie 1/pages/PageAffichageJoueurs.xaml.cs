@@ -135,7 +135,8 @@ namespace Partie_1.pages
             var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(Utilitaires.mainWindow);
             WinRT.Interop.InitializeWithWindow.Initialize(picker, hWnd);
 
-            picker.SuggestedFileName = "test2";
+            //le nom suggéré contient la date du jour
+            picker.SuggestedFileName = " Liste joueurs - " + System.DateTime.Now.ToString("d");
             picker.FileTypeChoices.Add("Fichier CSV", new List<string>() { ".csv" });
 
             //crée le fichier
