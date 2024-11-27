@@ -20,6 +20,8 @@ namespace Partie_1.classes
         
         public SingletonBD()
         {
+            //Modifier la chaine de connexion pour mettre la votre
+            //les tables doivent correspondre
             con = new MySqlConnection("Server=localhost;Database=demo;Uid=root;Pwd=root;");
             listeEquipes = new ObservableCollection<Equipe>();
             listeJoueurs = new ObservableCollection<Joueur>();
