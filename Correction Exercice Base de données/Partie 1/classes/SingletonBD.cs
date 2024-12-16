@@ -22,7 +22,9 @@ namespace Partie_1.classes
         {
             //Modifier la chaine de connexion pour mettre la votre
             //les tables doivent correspondre
-            con = new MySqlConnection("Server=localhost;Database=demo;Uid=root;Pwd=root;");
+            con = new MySqlConnection
+              ("Server=cours.cegep3r.info;Database=420345ri_gr00002_2309444-brayan-dyvan-lando-longmene;Uid='2309444';Pwd='2309444';");
+
             listeEquipes = new ObservableCollection<Equipe>();
             listeJoueurs = new ObservableCollection<Joueur>();
         }
@@ -218,7 +220,7 @@ namespace Partie_1.classes
                 string matricule = r.GetString("matricule");
                 string nom = r.GetString("nom");
                 string prenom = r.GetString("prenom");
-                DateTime dateNaissance = r.GetDateTime("dateNaissance");
+                DateTime dateNaissance = r.GetDateTime("date_naissance");
                 string nomEquipe = r.GetString("NomEquipe");
 
                 Joueur j = new Joueur{
@@ -253,7 +255,7 @@ namespace Partie_1.classes
                 string matricule = r.GetString("matricule");
                 string nom = r.GetString("nom");
                 string prenom = r.GetString("prenom");
-                DateTime dateNaissance = r.GetDateTime("dateNaissance");
+                DateTime dateNaissance = r.GetDateTime("date_naissance");
                 string nomEquipe = r.GetString("NomEquipe");
 
                 Joueur j = new Joueur
