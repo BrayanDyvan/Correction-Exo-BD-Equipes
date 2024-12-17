@@ -1,20 +1,10 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
-using MySqlX.XDevAPI;
 using Partie_1.classes;
 using Partie_1.dialogues;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -76,7 +66,7 @@ namespace Partie_1.pages
                 gv_liste.SelectedItem = null;
         }
 
-        
+
         private void btn_choixEquipe_Click(object sender, RoutedEventArgs e)
         {
 
@@ -107,7 +97,7 @@ namespace Partie_1.pages
 
             Joueur joueur = (Joueur)autoSuggestBox.DataContext;
 
-            if(args.ChosenSuggestion != null)
+            if (args.ChosenSuggestion != null)
             {
                 string n = args.ChosenSuggestion.ToString();
                 if (SingletonBD.getInstance().checkEquipe(n) == true)
@@ -125,7 +115,7 @@ namespace Partie_1.pages
 
                 }
             }
-            
+
         }
 
         private async void AppBarButton_Click_1(object sender, RoutedEventArgs e)
@@ -142,15 +132,15 @@ namespace Partie_1.pages
             //crée le fichier
             Windows.Storage.StorageFile monFichier = await picker.PickSaveFileAsync();
 
-            if(monFichier != null)
+            if (monFichier != null)
             {
                 //on convertit la liste des joueurs du singleton en List pour pouvoir écrire dans le fichier
                 List<Joueur> liste = SingletonBD.getInstance().ListeJoueurs.ToList();
-            
+
                 await Windows.Storage.FileIO.WriteLinesAsync(monFichier, liste.ConvertAll(x => x.StringCSV), Windows.Storage.Streams.UnicodeEncoding.Utf8);
             }
 
-            
+
         }
     }
 }

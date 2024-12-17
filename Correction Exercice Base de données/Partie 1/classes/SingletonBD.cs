@@ -359,7 +359,7 @@ namespace Partie_1.classes
                 string matricule = r.GetString("matricule");
                 string nom = r.GetString("nom");
                 string prenom = r.GetString("prenom");
-                DateTime dateNaissance = r.GetDateTime("dateNaissance");
+                DateTime dateNaissance = r.GetDateTime("date_naissance");
                 string nomEquipe = r.GetString("NomEquipe");
 
                 Joueur j = new Joueur
